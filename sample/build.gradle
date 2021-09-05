@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 31
     defaultConfig {
         applicationId "com.polyak.iconswitch.sample"
         minSdkVersion 21
-        targetSdkVersion 25
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
     }
@@ -20,10 +20,11 @@ android {
 }
 
 dependencies {
-    compile project(':iconswitch')
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support:design:25.2.0'
-    compile 'com.google.android.gms:play-services-maps:10.2.0'
+    implementation 'com.android.support:appcompat-v7:25.2.0'
+    implementation 'com.android.support:design:25.2.0'
+    implementation 'com.google.android.gms:play-services-maps:10.2.0'
 
-    compile 'com.yarolegovich:mp:1.0.5'
+    implementation 'com.yarolegovich:mp:1.0.5'
+
+    api project(':iconswitch')
 }
