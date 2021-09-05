@@ -5,12 +5,11 @@ import android.content.Intent;
 import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.Window;
@@ -19,14 +18,10 @@ import android.view.animation.Interpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.polyak.iconswitch.IconSwitch;
 import com.polyak.iconswitch.IconSwitch.Checked;
 
-public class MainActivity extends AppCompatActivity implements OnMapReadyCallback,
-        IconSwitch.CheckedChangeListener, ValueAnimator.AnimatorUpdateListener,
+public class MainActivity extends AppCompatActivity implements IconSwitch.CheckedChangeListener, ValueAnimator.AnimatorUpdateListener,
         View.OnClickListener {
 
     private static final int DURATION_COLOR_CHANGE_MS = 400;
@@ -65,14 +60,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         iconSwitch = (IconSwitch) findViewById(R.id.icon_switch);
         iconSwitch.setCheckedChangeListener(this);
         updateColors(false);
-
-        FragmentManager fm = getSupportFragmentManager();
-        SupportMapFragment fragment = (SupportMapFragment) fm.findFragmentById(R.id.map_container);
-        if (fragment == null) {
-            fragment = new SupportMapFragment();
-            fm.beginTransaction().replace(R.id.map_container, fragment).commit();
-        }
-        fragment.getMapAsync(this);
 
         findViewById(R.id.credit_polyak).setOnClickListener(this);
         findViewById(R.id.credit_yarolegovich).setOnClickListener(this);
@@ -142,10 +129,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         changeContentVisibility();
     }
 
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-
-    }
 
     @Override
     public void onClick(View v) {

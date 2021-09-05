@@ -6,9 +6,10 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.annotation.RequiresApi;
 
 /**
  * Created by yarolegovich on 31.03.2017.

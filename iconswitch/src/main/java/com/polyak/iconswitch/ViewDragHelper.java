@@ -1,10 +1,6 @@
 package com.polyak.iconswitch;
 
 import android.content.Context;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.VelocityTrackerCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.widget.ScrollerCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
@@ -13,6 +9,11 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.view.animation.OvershootInterpolator;
+
+import androidx.core.view.MotionEventCompat;
+import androidx.core.view.VelocityTrackerCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.widget.ScrollerCompat;
 
 import java.util.Arrays;
 
@@ -946,7 +947,7 @@ class ViewDragHelper {
 
     /**
      * Find the topmost child under the given point within the parent view's coordinate system.
-     * The child order is determined using {@link android.support.v4.widget.ViewDragHelper.Callback#getOrderedChildIndex(int)}.
+     * The child order is determined using {@link ViewDragHelper.Callback#getOrderedChildIndex(int)}.
      *
      * @param x X position to test in the parent's coordinate system
      * @param y Y position to test in the parent's coordinate system
